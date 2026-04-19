@@ -1,0 +1,299 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* SYNAPSE Design System - Dark-first neural aesthetic */
+:root {
+  /* Core backgrounds - near-black to charcoal gradient */
+  --background: oklch(0.12 0.005 260);
+  --foreground: oklch(0.92 0.01 260);
+  
+  /* Surface hierarchy */
+  --card: oklch(0.14 0.005 260);
+  --card-foreground: oklch(0.92 0.01 260);
+  --popover: oklch(0.16 0.005 260);
+  --popover-foreground: oklch(0.92 0.01 260);
+  
+  /* Signal green - primary action color */
+  --primary: oklch(0.82 0.18 145);
+  --primary-foreground: oklch(0.12 0.005 260);
+  
+  /* Muted surfaces */
+  --secondary: oklch(0.18 0.005 260);
+  --secondary-foreground: oklch(0.85 0.01 260);
+  --muted: oklch(0.20 0.005 260);
+  --muted-foreground: oklch(0.60 0.01 260);
+  --accent: oklch(0.22 0.005 260);
+  --accent-foreground: oklch(0.92 0.01 260);
+  
+  /* Destructive */
+  --destructive: oklch(0.60 0.20 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  
+  /* Borders and inputs */
+  --border: oklch(0.25 0.005 260);
+  --input: oklch(0.18 0.005 260);
+  --ring: oklch(0.82 0.18 145);
+  
+  /* Agent colors - 5 distinct neural voices */
+  --agent-zephyr: oklch(0.70 0.15 250);       /* electric blue */
+  --agent-artemis: oklch(0.75 0.15 180);      /* teal cyan */
+  --agent-nova: oklch(0.70 0.18 25);          /* warm coral */
+  --agent-echo: oklch(0.70 0.12 80);          /* gold amber */
+  --agent-sphinx: oklch(0.68 0.14 300);       /* soft violet */
+
+  /* Signal palette (semantic tiers) */
+  --signal-green: oklch(0.78 0.17 145);
+  --signal-blue: oklch(0.70 0.15 250);
+  --signal-purple: oklch(0.68 0.14 300);
+  --signal-orange: oklch(0.74 0.17 55);
+  --signal-coral: oklch(0.70 0.18 25);
+
+  /* Chart colors mapped to agents */
+  --chart-1: var(--agent-zephyr);
+  --chart-2: var(--agent-artemis);
+  --chart-3: var(--agent-nova);
+  --chart-4: var(--agent-echo);
+  --chart-5: var(--agent-sphinx);
+  
+  /* Skill node states */
+  --skill-locked: oklch(0.30 0.01 260);
+  --skill-unlocked: oklch(0.82 0.18 145);
+  --skill-mastered: oklch(0.85 0.20 145);
+  --skill-suggested: oklch(0.70 0.15 250);
+  
+  /* Radius - sharp but not harsh */
+  --radius: 0.5rem;
+  
+  /* Sidebar */
+  --sidebar: oklch(0.10 0.005 260);
+  --sidebar-foreground: oklch(0.85 0.01 260);
+  --sidebar-primary: oklch(0.82 0.18 145);
+  --sidebar-primary-foreground: oklch(0.12 0.005 260);
+  --sidebar-accent: oklch(0.18 0.005 260);
+  --sidebar-accent-foreground: oklch(0.92 0.01 260);
+  --sidebar-border: oklch(0.20 0.005 260);
+  --sidebar-ring: oklch(0.82 0.18 145);
+}
+
+/* Light mode - subtle inversion maintaining hierarchy */
+.light {
+  --background: oklch(0.98 0.005 260);
+  --foreground: oklch(0.15 0.01 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.01 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.01 260);
+  --primary: oklch(0.55 0.18 145);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.95 0.005 260);
+  --secondary-foreground: oklch(0.20 0.01 260);
+  --muted: oklch(0.93 0.005 260);
+  --muted-foreground: oklch(0.45 0.01 260);
+  --accent: oklch(0.95 0.005 260);
+  --accent-foreground: oklch(0.20 0.01 260);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.88 0.005 260);
+  --input: oklch(0.95 0.005 260);
+  --ring: oklch(0.55 0.18 145);
+  --sidebar: oklch(0.96 0.005 260);
+  --sidebar-foreground: oklch(0.20 0.01 260);
+  --sidebar-primary: oklch(0.55 0.18 145);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.93 0.005 260);
+  --sidebar-accent-foreground: oklch(0.20 0.01 260);
+  --sidebar-border: oklch(0.88 0.005 260);
+  --sidebar-ring: oklch(0.55 0.18 145);
+}
+
+@theme inline {
+  /* Typography */
+  --font-sans: var(--font-geist), 'Inter', system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), 'Georgia', serif;
+  --font-mono: var(--font-jetbrains), 'JetBrains Mono', monospace;
+  
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  /* Agent colors */
+  --color-agent-zephyr: var(--agent-zephyr);
+  --color-agent-artemis: var(--agent-artemis);
+  --color-agent-nova: var(--agent-nova);
+  --color-agent-echo: var(--agent-echo);
+  --color-agent-sphinx: var(--agent-sphinx);
+
+  /* Signal colors */
+  --color-signal-green: var(--signal-green);
+  --color-signal-blue: var(--signal-blue);
+  --color-signal-purple: var(--signal-purple);
+  --color-signal-orange: var(--signal-orange);
+  --color-signal-coral: var(--signal-coral);
+  
+  /* Chart colors */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  /* Skill states */
+  --color-skill-locked: var(--skill-locked);
+  --color-skill-unlocked: var(--skill-unlocked);
+  --color-skill-mastered: var(--skill-mastered);
+  --color-skill-suggested: var(--skill-suggested);
+  
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  html {
+    @apply bg-background;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Film grain overlay - subtle texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.015;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+  
+  /* Selection styling */
+  ::selection {
+    background: oklch(0.82 0.18 145 / 0.3);
+    color: inherit;
+  }
+  
+  /* Focus states - signal green glow */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.30 0.005 260);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.40 0.005 260);
+  }
+}
+
+@layer utilities {
+  /* Signal green glow effect */
+  .glow-signal {
+    box-shadow: 
+      0 0 20px oklch(0.82 0.18 145 / 0.15),
+      0 0 40px oklch(0.82 0.18 145 / 0.1);
+  }
+  
+  /* Agent-specific glows */
+  .glow-zephyr {
+    box-shadow: 0 0 20px oklch(0.70 0.15 250 / 0.3);
+  }
+
+  .glow-artemis {
+    box-shadow: 0 0 20px oklch(0.75 0.15 180 / 0.3);
+  }
+
+  .glow-nova {
+    box-shadow: 0 0 20px oklch(0.70 0.18 25 / 0.3);
+  }
+
+  .glow-echo {
+    box-shadow: 0 0 20px oklch(0.70 0.12 80 / 0.3);
+  }
+
+  .glow-sphinx {
+    box-shadow: 0 0 20px oklch(0.68 0.14 300 / 0.3);
+  }
+  
+  /* Pulse animation for live indicator */
+  .pulse-live {
+    animation: pulse-live 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-live {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  /* Neural connection line */
+  .neural-line {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      oklch(0.82 0.18 145 / 0.5),
+      transparent
+    );
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-live {
+      animation: none;
+    }
+    
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
