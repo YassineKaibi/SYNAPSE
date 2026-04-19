@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
-import localFont from 'next/font/local'
+import { Fraunces, Geist, Geist_Mono, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { DemoTourShell } from '@/components/synapse/demo-tour-shell'
@@ -17,25 +16,15 @@ const geistMono = Geist_Mono({
   display: 'swap',
 })
 
-const fraunces = localFont({
-  src: [
-    {
-      path: '../public/fonts/Fraunces-VariableFont.ttf',
-      style: 'normal',
-    },
-  ],
+const fraunces = Fraunces({
+  subsets: ['latin'],
   variable: '--font-fraunces',
   display: 'swap',
   fallback: ['Georgia', 'serif'],
 })
 
-const jetbrainsMono = localFont({
-  src: [
-    {
-      path: '../public/fonts/JetBrainsMono-VariableFont.ttf',
-      style: 'normal',
-    },
-  ],
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
   variable: '--font-jetbrains',
   display: 'swap',
   fallback: ['monospace'],
